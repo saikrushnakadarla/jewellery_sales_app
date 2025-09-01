@@ -1,0 +1,92 @@
+.main-container {
+  padding: 20px;
+}
+
+.customer-master-container {
+  padding: 20px;
+  max-width: 1500px;
+  margin: auto;
+  background-color: rgba(163, 110, 41, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 75px;
+}
+
+.customer-master-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* ✅ GRID Layout */
+.customer-master-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.checkbox-wrapper {
+  grid-column: span 3; /* Full width row */
+}
+
+.sup-button-container {
+  grid-column: span 3; /* Full width row */
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: -50px;
+  
+}
+
+.cus-back-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cus-back-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.cus-submit-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #a36e29;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cus-submit-btn:hover {
+  background-color: #8c5d20;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .customer-master-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .customer-master-form {
+    grid-template-columns: 1fr;
+  }
+
+  .sup-button-container {
+    flex-direction: column;
+  }
+
+  .cus-back-btn,
+  .cus-submit-btn {
+    width: 100%;
+  }
+}
