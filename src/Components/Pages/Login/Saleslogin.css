@@ -1,0 +1,181 @@
+/* Container & Card */
+.saleslogin-container {
+  background: linear-gradient(135deg, #f9f2d3 0%, #f8e8b5 50%, #fdf6e3 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.saleslogin-card {
+  background-color: rgba(255, 250, 240, 0.95);
+  border: 2px solid #d4af37;
+}
+
+.saleslogin-card-body {
+  padding: 2rem;
+}
+
+/* Welcome Text */
+.saleslogin-welcome-text {
+  color: #b8860b;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Input & Labels */
+.saleslogin-label {
+  color: #8b7500;
+}
+
+.saleslogin-input {
+  background-color: #fffdf5;
+  border: 2px solid #d4af37;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.saleslogin-password-container {
+  position: relative;
+}
+
+.saleslogin-input-group {
+  display: flex;
+}
+
+.saleslogin-password-input {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  flex: 1;
+}
+
+.saleslogin-eye-toggle {
+  background-color: #d4af37;
+  border: 2px solid #d4af37;
+  border-left: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Password Input Group Fix */
+.saleslogin-input-group .form-control {
+  border: 2px solid #d4af37 !important; /* Force gold border */
+  border-right: none !important; /* Keep seamless with eye button */
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  background-color: #fffdf5 !important;
+}
+
+.saleslogin-eye-toggle {
+  border: 2px solid #d4af37 !important; /* Force gold border */
+  border-left: none !important;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: #fffdf5 !important;
+}
+
+.saleslogin-eye-toggle:hover {
+  background-color: #f8e8b5 !important;
+}
+
+/* Optional: Make input height match button */
+.saleslogin-input-group .form-control,
+.saleslogin-eye-toggle {
+  height: 45px; /* Or same as .saleslogin-input */
+}
+
+.saleslogin-eye-toggle:hover {
+  background-color: #f8e8b5;
+}
+
+/* Checkbox */
+.saleslogin-checkbox {
+  background-color: #fffdf5;
+  border: 2px solid #d4af37;
+}
+
+.saleslogin-checkbox:checked {
+  background-color: #d4af37;
+  border-color: #d4af37;
+}
+
+.saleslogin-remember {
+  color: #8b7500;
+}
+
+/* Buttons & Links */
+.saleslogin-btn {
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.saleslogin-btn:hover {
+  background-color: #b8860b;
+}
+
+.saleslogin-register-text {
+  color: #8b7500;
+}
+
+.saleslogin-register-link {
+  color: #d4af37;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.saleslogin-register-link:hover {
+  color: #b8860b;
+}
+
+/* ------------------ Media Queries ------------------ */
+
+/* Mobile (360–740px) */
+@media (max-width: 740px) {
+  .saleslogin-container {
+    padding: 15px;
+  }
+  
+  .saleslogin-card-body {
+    padding: 1.5rem;
+  }
+  
+  .saleslogin-eye-toggle {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* iPad Mini (768–1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .saleslogin-container {
+    padding: 20px;
+  }
+  
+  .saleslogin-card-body {
+    padding: 2rem;
+  }
+  
+  .saleslogin-col {
+    max-width: 80%;
+  }
+}
+
+/* Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .saleslogin-container {
+    padding: 30px;
+  }
+  
+  .saleslogin-col {
+    max-width: 400px;
+  }
+}
