@@ -1,147 +1,265 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import InputField from '../../Pages/TableLayout/InputField';
-import './CustomerRegistration.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import InputField from "../../Pages/TableLayout/InputField";
+import "./CustomerRegistration.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function CustomerRegistration() {
   const navigate = useNavigate();
-  // Static form data (no state management)
-  const formData = {
-    account_name: '',
-    print_name: '',
-    account_group: 'CUSTOMERS',
-    address1: '',
-    address2: '',
-    city: '',
-    pincode: '',
-    state: '',
-    state_code: '',
-    phone: '',
-    religion: '',
-    mobile: '',
-    email: '',
-    birthday: '',
-    anniversary: '',
-    bank_account_no: '',
-    bank_name: '',
-    ifsc_code: '',
-    branch: '',
-    gst_in: '',
-    aadhar_card: '',
-    pan_card: '',
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    dob: "",
+    gender: "",
+    designation: "",
+    anniversary: "",
+    country: "",
+    state: "",
+    city: "",
+    password: "",
+    confirmPassword: "",
+    company_name: "",
+    pincode: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const states = [
-    { state_name: 'Andhra Pradesh', state_code: 'AP' },
-    { state_name: 'Maharashtra', state_code: 'MH' },
-    { state_name: 'Karnataka', state_code: 'KA' },
-  ];
-
-  // Dummy handlers
-  const handleChange = () => {};
-  const handleStateChange = () => {};
-  const handleSubmit = (e) => e.preventDefault();
-   const handleBack = () => {
-    navigate('/login');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
   };
-  const handleCheckboxChange = () => {};
+
+  const handleBack = () => {
+    navigate("/login");
+  };
 
   return (
-    <>
-      <div className="main-container">
-        <div className="customer-master-container">
-          <h2>Customer Registration</h2>
-          <form className="customer-master-form" onSubmit={handleSubmit}>
-            
+    <div className="customerregistration-main-container">
+      <div className="customerregistration-form-container">
+        <h2>Customer Registration</h2>
+        <form className="customerregistration-form" onSubmit={handleSubmit}>
+          {/* Full Name */}
+          <InputField
+            label="Full Name"
+            placeholder="Enter full name"
+            name="full_name"
+            value={formData.full_name}
+            onChange={handleChange}
+            required
+          />
+
+          {/* Email */}
+          <InputField
+            label="Email Id"
+            placeholder="Enter your email id"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          {/* Date of Birth */}
+          <InputField
+            label="Date of Birth"
+            placeholder="Select birthdate"
+            type="date"
+            name="dob"
+            value={formData.dob}
+            onChange={handleChange}
+            required
+          />
+
+          {/* Gender */}
+          <div className="customerregistration-gender-field">
+            <label className="input-label">Gender</label>
+            <div className="customerregistration-gender-options">
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  checked={formData.gender === "Male"}
+                  onChange={handleChange}
+                  required
+                />
+                Male
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  checked={formData.gender === "Female"}
+                  onChange={handleChange}
+                />
+                Female
+              </label>
+            </div>
+          </div>
+
+          {/* Designation */}
+          <InputField
+            label="Designation"
+            type="select"
+            placeholder="Select Designation"
+            name="designation"
+            value={formData.designation}
+            onChange={handleChange}
+            required
+            options={[
+              { value: "Director", label: "Director" },
+              { value: "Managing Director", label: "Managing Director" },
+              { value: "CEO", label: "CEO" },
+              { value: "General Manager", label: "General Manager" },
+              { value: "Proprietor", label: "Proprietor" },
+              { value: "Partner", label: "Partner" },
+              { value: "CFO", label: "CFO" },
+              { value: "Purchase Manager", label: "Purchase Manager" },
+              { value: "Purchase Head", label: "Purchase Head" },
+              { value: "Salesman", label: "Salesman" },
+              { value: "Other", label: "Other" },
+            ]}
+          />
+
+          {/* Anniversary */}
+          <InputField
+            label="Date of Anniversary"
+            type="date"
+            name="anniversary"
+            value={formData.anniversary}
+            onChange={handleChange}
+          />
+
+          {/* Country */}
+          <div className="customerregistration-country-container">
             <InputField
-              label="Trade / Customer Name"
-              name="account_name"
-              value={formData.account_name}
-              onChange={handleChange}
-              required
-            />
-            <InputField
-              label="Print Name"
-              name="print_name"
-              value={formData.print_name}
-              onChange={handleChange}
-              required
-            />
-            <InputField label="Phone" name="phone" value={formData.phone} onChange={handleChange} />
-            <InputField label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} required />
-            <InputField label="Email" name="email" value={formData.email} onChange={handleChange} />
-            <InputField
-              label="Religion"
-              name="religion"
+              label="Country"
               type="select"
-              value={formData.religion}
+              name="country"
+              value={formData.country}
               onChange={handleChange}
+              required
               options={[
-                { value: "Hinduism", label: "Hinduism" },
-                { value: "Islam", label: "Islam" },
-                { value: "Christianity", label: "Christianity" },
-                { value: "Sikhism", label: "Sikhism" },
-                { value: "Others", label: "Others" },
+                { value: "India", label: "India" },
+                { value: "Albania", label: "Albania" },
+                { value: "Algeria", label: "Algeria" },
+                { value: "American Samoa", label: "American Samoa" },
+                { value: "Andorra", label: "Andorra" },
               ]}
             />
+          </div>
 
-            <InputField label="Address1" name="address1" value={formData.address1} onChange={handleChange} />
-            <InputField label="Address2" name="address2" value={formData.address2} onChange={handleChange} />
-            <InputField label="City" name="city" value={formData.city} onChange={handleChange} />
+          {/* State */}
+          <InputField
+            label="State"
+            placeholder="Select state"
+            type="select"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            required
+            options={[
+              { value: "Telangana", label: "Telangana" },
+              { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+            ]}
+          />
 
-            <InputField label="Pincode" name="pincode" value={formData.pincode} onChange={handleChange} />
+          {/* City */}
+          <InputField
+            label="City"
+            type="select"
+            placeholder="Select city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            required
+            options={[
+              { value: "Rajanna Sircilla", label: "Rajanna Sircilla" },
+              { value: "Karimnagar", label: "Karimnagar" },
+            ]}
+          />
+
+          {/* Password */}
+          <div className="customerregistration-password-container">
             <InputField
-              label="State"
-              name="state"
-              type="select"
-              value={formData.state}
-              onChange={handleStateChange}
-              options={states.map((state) => ({
-                value: state.state_name,
-                label: state.state_name,
-              }))}
+              label="Password"
+              placeholder="Enter your password"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
             />
-            <InputField label="State Code" name="state_code" value={formData.state_code} onChange={handleChange} readOnly />
+            <span
+              className="customerregistration-eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-            {/* <InputField label="Birthday" name="birthday" type="date" value={formData.birthday} onChange={handleChange} />
-            <InputField label="Anniversary" name="anniversary" type="date" value={formData.anniversary} onChange={handleChange} /> */}
-            <InputField label="Bank Account No" name="bank_account_no" value={formData.bank_account_no} onChange={handleChange} />
+          {/* Confirm Password */}
+          <div className="customerregistration-password-container">
+            <InputField
+              label="Confirm Password"
+              placeholder="Enter your confirm password"
+              type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+            <span
+              className="customerregistration-eye-icon"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-            <InputField label="Bank Name" name="bank_name" value={formData.bank_name} onChange={handleChange} />
-            <InputField label="IFSC Code" name="ifsc_code" value={formData.ifsc_code} onChange={handleChange} />
-            <InputField label="Branch" name="branch" value={formData.branch} onChange={handleChange} />
+          {/* Company Name */}
+          <InputField
+            label="Company Name"
+            name="company_name"
+            placeholder="Enter Company Name"
+            value={formData.company_name}
+            onChange={handleChange}
+            required
+          />
 
-            <InputField label="GSTIN" name="gst_in" value={formData.gst_in} onChange={handleChange} />
-            <InputField label="Aadhar Card" name="aadhar_card" value={formData.aadhar_card} onChange={handleChange} />
-            <InputField label="PAN Card" name="pan_card" value={formData.pan_card} onChange={handleChange} />
+          {/* Pincode */}
+          <InputField
+            label="Pincode"
+            placeholder="Enter Pincode"
+            name="pincode"
+            value={formData.pincode}
+            onChange={handleChange}
+            required
+          />
 
-            {/* Checkbox full width */}
-            {/* <div className="checkbox-wrapper">
-              <label className="checkbox-label" htmlFor="tcs">
-                <input
-                  type="checkbox"
-                  id="tcs"
-                  name="tcsApplicable"
-                  className="checkbox-input"
-                  onChange={handleCheckboxChange}
-                />
-                TCS Applicable
-              </label>
-            </div> */}
-
-            {/* Buttons full width row */}
-            <div className="sup-button-container">
-              <button type="button" className="cus-back-btn" onClick={handleBack}>
-                Close
-              </button>
-              <button type="submit" className="cus-submit-btn">
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
+          {/* Buttons */}
+          <div className="customerregistration-button-container">
+            <button
+              type="button"
+              className="customerregistration-back-btn"
+              onClick={handleBack}
+            >
+              Close
+            </button>
+            <button type="submit" className="customerregistration-submit-btn">
+              Save
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,292 +1,313 @@
-/* Container & Card */
-/* .saleslogin-container { */
-  /* background: linear-gradient(135deg, #f9f2d3 0%, #f8e8b5 50%, #fdf6e3 100%); */
-  /* background-color: rgba(163, 110, 41, 0.08) !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  padding: 20px;
-} */
-
-/* .saleslogin-card {
-  background-color: rgba(255, 250, 240, 0.95);
-  border: 2px solid #d4af37;
-}
-
-.saleslogin-card-body {
-  padding: 2rem;
-}
-
-
-.saleslogin-welcome-text {
-  color: #b8860b;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-} */
-
-/* Input & Labels */
-/* .saleslogin-label {
-  color: #8b7500;
-}
-
-.saleslogin-input {
-  background-color: #fffdf5;
-  border: 2px solid #d4af37;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0.75rem;
-}
-
-.saleslogin-password-container {
-  position: relative;
-}
-
-.saleslogin-input-group {
-  display: flex;
-}
-
-.saleslogin-password-input {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  flex: 1;
-}
-
-.saleslogin-eye-toggle {
-  background-color: #d4af37;
-  border: 2px solid #d4af37;
-  border-left: none;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.saleslogin-input-group .form-control {
-  border: 2px solid #d4af37 !important;
-
-  border-right: none !important;
-
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  background-color: #fffdf5 !important;
-} */
-/* 
-.saleslogin-eye-toggle {
-  border: 2px solid #d4af37 !important;
-  
-  border-left: none !important;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  background-color: #fffdf5 !important;
-} */
-
-.saleslogin-eye-toggle:hover {
-  background-color: #f8e8b5 !important;
-}
-
-/* Optional: Make input height match button */
-/* .saleslogin-input-group .form-control,
-.saleslogin-eye-toggle {
-  height: 45px;
- 
-} */
-
-/* .saleslogin-eye-toggle:hover {
-  background-color: #f8e8b5;
-} */
-
-/* Checkbox */
-/* .saleslogin-checkbox {
-  background-color: #fffdf5;
-  border: 2px solid #d4af37;
-}
-
-.saleslogin-checkbox:checked {
-  background-color: #d4af37;
-  border-color: #d4af37;
-}
-
-.saleslogin-remember {
-  color: #8b7500;
-} */
-
-/* Buttons & Links */
-/* .saleslogin-btn {
-  background-color: #d4af37;
-  color: #fff;
-  border: none;
-  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
-  padding: 0.5rem 0;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.saleslogin-btn:hover {
-  background-color: #b8860b;
-}
-
-.saleslogin-register-text {
-  color: #8b7500;
-}
-
-.saleslogin-register-link {
-  color: #d4af37;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.saleslogin-register-link:hover {
-  color: #b8860b;
-} */
-
-/* ------------------ Media Queries ------------------ */
-
-/* Mobile (360–740px) */
-/* @media (max-width: 740px) {
   .saleslogin-container {
-    padding: 15px;
+    background: #fff;
+    min-height: 100vh;
+  }
+
+  .saleslogin-logo {
+    max-width: 80%;
+  }
+
+  .saleslogin-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    padding-bottom: 60px;
   }
 
   .saleslogin-card-body {
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  /* Inputs */
+  .saleslogin-label {
+    font-weight: 500;
+    color: #333;
+  }
+
+  /* Country code + mobile row */
+  .saleslogin-mobile-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .saleslogin-countrycode-wrapper {
+    flex: 0 0 100px;
+  }
+
+  .saleslogin-mobile-wrapper {
+    flex: 1;
+  }
+
+  .saleslogin-countrycode,
+  .saleslogin-input {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+
+  /* Password toggle */
+  .saleslogin-password-container {
+    position: relative;
   }
 
   .saleslogin-eye-toggle {
-    padding: 0.4rem 0.6rem;
-  }
-} */
-
-/* iPad Mini (768–1024px) */
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  .saleslogin-container {
-    padding: 20px;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
   }
 
-  .saleslogin-card-body {
-    padding: 2rem;
+  .saleslogin-eye-toggle:hover {
+    color: #333;
   }
 
-  .saleslogin-col {
-    max-width: 80%;
-  }
-} */
-
-/* Desktop (1025px+) */
-/* @media (min-width: 1025px) {
-  .saleslogin-container {
-    padding: 30px;
-  }
-
-  .saleslogin-col {
-    max-width: 400px;
-    margin-top: 80px;
-  }
-} */
-
-
-
-.saleslogin-container {
-  background: #fff;
-  height: 100vh;
-}
-
-.saleslogin-left {
-  background: #fff;
-}
-
-.saleslogin-logo {
-  max-width: 80%;
-}
-
-.saleslogin-right {
-  background: #fff;
-}
-
-.saleslogin-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-}
-
-.saleslogin-btn {
-  background-color: #c17900;
-  color: #fff;
-  border-radius: 8px;
-}
-
-.saleslogin-btn:hover {
-  background-color: #a35f00;
-}
-
-.saleslogin-password-container {
-  position: relative;
-}
-
-.saleslogin-password-input {
-  padding-right: 40px; /* space for eye icon */
-}
-
-.saleslogin-eye-toggle {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #888;
-  font-size: 1rem;
-}
-
-.saleslogin-eye-toggle:hover {
-  color: #333;
-}
-
-/* ✅ Mobile Responsiveness */
-@media (max-width: 768px) {
-  .saleslogin-container {
-    height: auto;
-    padding: 20px 10px;
-  }
-
-  .saleslogin-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* space between logo & form */
-  }
-
-  .saleslogin-logo {
-    max-width: 60%;
-  }
-
-  .saleslogin-right {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .saleslogin-card {
-    max-width: 100%;
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .saleslogin-logo {
-    max-width: 75%;
-  }
-
-  .saleslogin-card {
-    padding: 10px;
+  /* Buttons */
+  .saleslogin-btn-wrapper,
+  .saleslogin-guest-btn-wrapper {
+    width: 100%;
   }
 
   .saleslogin-btn {
+    background-color: #c17900;
+    color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+  }
+
+  .saleslogin-btn:hover {
+    background-color: #a35f00;
+  }
+
+  .saleslogin-guest-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .saleslogin-guest-btn:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Forgot password */
+  .saleslogin-forgot {
+    color: #555;
+    text-decoration: none;
     font-size: 0.9rem;
   }
 
-  .saleslogin-welcome-text {
-    font-size: 1.5rem;
+  .saleslogin-forgot:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  .saleslogin-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 14px;
+  }
+
+  .saleslogin-footer-link {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .saleslogin-footer-link:hover {
+    text-decoration: underline;
+  }
+
+/* Mobile Styles (max-width: 768px) */
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+  .saleslogin-container {
+    padding: 10px;
+  }
+  
+  .saleslogin-left {
+    padding: 20px 15px 0 15px;
+  }
+  
+  .saleslogin-logo {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .saleslogin-card {
+    max-width: 100%;
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .saleslogin-mobile-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  
+  .saleslogin-countrycode-wrapper {
+    flex: 0 0 100px;
+  }
+  
+  .saleslogin-countrycode-wrapper .saleslogin-label,
+  .saleslogin-mobile-wrapper .saleslogin-label {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .saleslogin-mobile-wrapper {
+    flex: 1;
+  }
+  
+  .saleslogin-footer {
+    position: relative;
+    margin-top: 20px;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 }
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+  .saleslogin-container {
+    padding: 10px;
+  }
+  
+  .saleslogin-left {
+    padding: 20px 15px 0 15px;
+  }
+  
+  .saleslogin-logo {
+    max-width: 290px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .saleslogin-card {
+    max-width: 100%;
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .saleslogin-mobile-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  
+  .saleslogin-countrycode-wrapper {
+    flex: 0 0 100px;
+  }
+  
+  .saleslogin-countrycode-wrapper .saleslogin-label,
+  .saleslogin-mobile-wrapper .saleslogin-label {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .saleslogin-mobile-wrapper {
+    flex: 1;
+  }
+  
+  .saleslogin-footer {
+    position: relative;
+    margin-top: 20px;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* iPad Mini Styles (min-width: 769px) and (max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .saleslogin-left {
+    padding: 30px 20px;
+  }
+  
+  .saleslogin-logo {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+  }
+  
+  .saleslogin-card {
+    max-width: 70%;
+    
+  }
+  
+  .saleslogin-mobile-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: flex-end;
+  }
+  
+  .saleslogin-countrycode-wrapper {
+    flex: 0 0 110px;
+  }
+  
+  .saleslogin-mobile-wrapper {
+    flex: 1;
+  }
+  
+  .saleslogin-footer {
+    position: relative;
+    margin-top: 20px;
+    padding: 0;
+  }
+}
+  /* Desktop CSS (min-width: 1025px) */
+  @media (min-width: 1025px) {
+    .saleslogin-card {
+      max-width: 400px;
+    }
+    .saleslogin-mobile-row {
+      flex-direction: row; /* Ensure row layout */
+      gap: 15px;
+      align-items: flex-end;
+    }
+    .saleslogin-countrycode-wrapper {
+      flex: 0 0 100px; /* Smaller fixed width for Country Code */
+    }
+    .saleslogin-mobile-wrapper {
+      flex: 1; /* Larger width for Mobile Number */
+    }
+    .saleslogin-footer {
+      position: absolute;
+      bottom: 10px;
+      padding: 0 15px;
+    }
+  }

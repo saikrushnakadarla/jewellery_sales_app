@@ -18,17 +18,18 @@ const InputField = ({
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      borderColor: "#A26D2B",
-      boxShadow: state.isFocused ? "0 0 0 1px #A26D2B" : "none",
-      "&:hover": { borderColor: "#A26D2B" },
-      minHeight: "40px",
-      height: "40px",
+      border: "none",
+      borderBottom: `1px solid ${state.isFocused ? "#8c5d20" : "#A26D2B"}`,
+      borderRadius: 0,
+      boxShadow: "none",
+      "&:hover": { borderBottom: "2px solid #8c5d20" },
+      minHeight: "32px",
       fontSize: "14px",
+      backgroundColor: "transparent"
     }),
     valueContainer: (provided) => ({
       ...provided,
-      padding: "0 8px",
-      height: "38px",
+      padding: "0px",
     }),
     input: (provided) => ({
       ...provided,
@@ -36,7 +37,7 @@ const InputField = ({
     }),
     indicatorsContainer: (provided) => ({
       ...provided,
-      height: "38px",
+      padding: "0px",
     }),
     menu: (provided) => ({
       ...provided,
@@ -47,40 +48,39 @@ const InputField = ({
 
   return (
     <div className="input-field-container">
-      <div className="select-container">
-        {label && <label className="floating-label">{label}</label>}
-        {type === "select" ? (
-          <Select
-            name={name}
-            options={options}
-            placeholder={placeholder || "Select"}
-            isDisabled={readOnly}
-            value={value ? options.find((opt) => opt.value === value) : null}
-            onChange={(selectedOption) =>
-              onChange({
-                target: { name, value: selectedOption ? selectedOption.value : "" },
-              })
-            }
-            styles={customStyles}
-            menuPortalTarget={document.body}
-            isClearable
-            autoFocus={autoFocus}
-          />
-        ) : (
-          <input
-            className="styled-input"
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            readOnly={readOnly}
-            onChange={onChange}
-            required={required}
-            max={max}
-            autoFocus={autoFocus}
-          />
-        )}
-      </div>
+      {label && <label className="input-label">{label}</label>}
+
+      {type === "select" ? (
+        <Select
+          name={name}
+          options={options}
+          placeholder={placeholder || "Select"}
+          isDisabled={readOnly}
+          value={value ? options.find((opt) => opt.value === value) : null}
+          onChange={(selectedOption) =>
+            onChange({
+              target: { name, value: selectedOption ? selectedOption.value : "" },
+            })
+          }
+          styles={customStyles}
+          menuPortalTarget={document.body}
+          isClearable
+          autoFocus={autoFocus}
+        />
+      ) : (
+        <input
+          className="styled-input"
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          readOnly={readOnly}
+          onChange={onChange}
+          required={required}
+          max={max}
+          autoFocus={autoFocus}
+        />
+      )}
     </div>
   );
 };
