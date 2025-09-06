@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Saleslogin.css';
+import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../Pages/images/JIYAA JEWELS logo_page-0001.jpg'; // <-- Replace with your logo path
 
-const SalesLogin = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const staticEmail = 'admin@gmail.com';
   const staticPassword = 'admin@123';
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === staticEmail && password === staticPassword) {
-      alert('Login successful!');
-      console.log('Logged in:', { email, password, rememberMe });
-    } else {
-      alert('Invalid email or password!');
+  if (email === staticEmail && password === staticPassword) {
+  Swal.fire({
+    icon: 'success',
+    title: 'Login successful!',
+    confirmButtonText: 'OK'
+  }).then(() => {
+    console.log('Logged in:', { email, password, rememberMe });
+    navigate('/dashboard');
+  });
+}
+ else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid email or password!',
+        confirmButtonText: 'Try Again'
+      });
     }
   };
 
@@ -27,12 +43,19 @@ const SalesLogin = () => {
 
   return (
     <div className="saleslogin-container container-fluid">
-      <div className="row justify-content-center align-items-center h-100 saleslogin-row">
-        <div className="col-11 col-md-6 col-lg-4 saleslogin-col">
+      <div className="row vh-100 d-flex align-items-center justify-content-center">
+
+        {/* Left side - Logo */}
+        <div className="col-md-6 d-flex justify-content-center align-items-center saleslogin-left">
+          <img src={logo} alt="Company Logo" className="img-fluid saleslogin-logo" />
+        </div>
+
+        {/* Right side - Login Form */}
+        <div className="col-md-6 d-flex justify-content-center align-items-center saleslogin-right">
           <div className="card saleslogin-card shadow-lg border-0 rounded-4">
             <div className="card-body saleslogin-card-body">
               <div className="text-center mb-4 saleslogin-welcome-container">
-                <h2 className="fw-bold mb-3 saleslogin-welcome-text">Welcome</h2>
+                <h2 className="fw-bold mb-3 saleslogin-welcome-text">Welcome Back</h2>
               </div>
 
               <form onSubmit={handleSubmit}>
@@ -47,6 +70,7 @@ const SalesLogin = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    placeholder="Enter your email"
                   />
                 </div>
 
@@ -54,18 +78,19 @@ const SalesLogin = () => {
                   <label htmlFor="password" className="form-label fw-medium saleslogin-label">
                     Password
                   </label>
-                  <div className="input-group saleslogin-input-group">
+                  <div className="position-relative">
                     <input
                       type={showPassword ? 'text' : 'password'}
-                      className="form-control saleslogin-password-input"
+                      className="form-control saleslogin-password-input pe-5"
                       id="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
+                      placeholder="Enter your password"
                     />
                     <button
                       type="button"
-                      className="input-group-text saleslogin-eye-toggle"
+                      className="saleslogin-eye-toggle"
                       onClick={togglePasswordVisibility}
                     >
                       <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
@@ -93,7 +118,7 @@ const SalesLogin = () => {
                 <div className="text-center mt-3">
                   <p className="saleslogin-register-text">
                     Don't have an account?{' '}
-                    <a href="/salepersonregister" className="saleslogin-register-link">
+                    <a href="/customerregistration" className="saleslogin-register-link">
                       Register Here
                     </a>
                   </p>
@@ -102,9 +127,10 @@ const SalesLogin = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
 };
 
-export default SalesLogin;
+export default Login;

@@ -1,3 +1,4 @@
+/* Navbar.css */
 .navbar-header {
     display: flex;
     justify-content: space-between;
@@ -7,19 +8,48 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     z-index: 1001;
-    width: 97%;
+    width: 100%;
     margin-top: 0px;
-    height: 49px;
+    height: 80px;
+    top: 0;
+    left: 0;
 }
 
-/* ✅ Center the nav links */
+/* Logo styling */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Pushes other content to the right */
+}
+
+.navbar-logo {
+    width: 175px;
+    height: 80px;
+    /* object-fit: contain; */
+}
+
+.navbar-logo-placeholder {
+    width: 180px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    color: #888;
+    font-weight: bold;
+}
+
+/* Centered nav links */
 .navbar-links {
     display: flex;
-    justify-content: center;   /* center items */
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     list-style-type: none;
-    flex-grow: 1;              /* take available space */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .active {
@@ -28,9 +58,7 @@
 }
 
 .navbar-logout {
-    position: absolute;
-    top: 25px;
-    right: 35px;
+    margin-left: auto; /* Pushes logout to the right */
 }
 
 .logout-button {
@@ -48,11 +76,6 @@
 
 .logout-button:hover {
     background-color: #864c1a;
-}
-
-.navbar-brand {
-    margin-bottom: -6px;
-    margin-right: 5%;
 }
 
 .dropdown-arrow-icon {
@@ -157,6 +180,16 @@
         height: 70px;
     }
 
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .navbar-logo,
+    .navbar-logo-placeholder {
+        width: 140px;
+        height: 50px;
+    }
+
     .navbar-links {
         position: absolute;
         top: 70px;
@@ -169,6 +202,7 @@
         transition: transform 0.3s ease-in-out;
         z-index: 999;
         padding: 1rem 0;
+        gap: 0;
     }
 
     .navbar-links.open {
@@ -198,11 +232,18 @@
     .navbar-hamburger {
         display: flex;
         z-index: 1000;
+        order: 3; /* Hamburger on the right */
     }
 
     .navbar-logout {
-        position: static;
-        margin-top: 1rem;
+        display: none; /* Hide logout button on mobile - will be in menu */
+    }
+
+    .navbar-links.open + .navbar-logout-mobile {
+        display: block;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 1rem;
     }
 
     .username {

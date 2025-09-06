@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FaSignOutAlt } from "react-icons/fa";
-// import logo from './Company_logo.png';
+import logo from '../images/jiya_logo.png'; // Uncomment when you have the logo
 import './Navbar.css';
 import Swal from 'sweetalert2';
 
@@ -38,7 +38,7 @@ function Navbar() {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate('/');
+        navigate('/login');
       }
     });
   };
@@ -49,9 +49,12 @@ function Navbar() {
 
   return (
     <header className="navbar-header">
-      {/* <div className="navbar-brand">
-        <img src={logo} alt="Logo" style={{ width: "180px", height:"60px" }} />
-      </div> */}
+      {/* Logo on the left side */}
+      <div className="navbar-brand">
+        {/* Uncomment the line below when you have the logo file */}
+        <img src={logo} alt="Logo" className="navbar-logo" />
+        {/* <div className="navbar-logo-placeholder">Company Logo</div> */}
+      </div>
 
       <div
         className={`navbar-hamburger ${isOpen ? 'open' : ''}`}
@@ -62,7 +65,7 @@ function Navbar() {
         <div className="navbar-bar"></div>
       </div>
 
-      {/* ✅ Centered nav links */}
+      {/* Centered nav links */}
       <nav className={`navbar-links ${isOpen ? 'open' : ''}`}>
         <div>
           <span>
@@ -95,11 +98,11 @@ function Navbar() {
           </span>
           {mastersDropdownOpen && (
             <div className="navbar-dropdown-content">
-              <Link to="/customerstable" onClick={handleItemClick} className={isActive('/customerstable')}>
+              <Link to="/customers" onClick={handleItemClick} className={isActive('/customers')}>
                 Customer Master
               </Link>
-              <Link to="/itemmastertable" onClick={handleItemClick} className={isActive('/itemmastertable')}>
-                Category Master
+              <Link to="/salespersontable" onClick={handleItemClick} className={isActive('/salespersontable')}>
+                Salesperson Master
               </Link>
             </div>
           )}

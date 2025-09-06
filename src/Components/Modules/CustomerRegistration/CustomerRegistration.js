@@ -1,9 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputField from '../../Pages/TableLayout/InputField';
 import './CustomerRegistration.css';
-import Navbar from '../../Pages/Navbar/Navbar';
 
 function CustomerRegistration() {
+  const navigate = useNavigate();
   // Static form data (no state management)
   const formData = {
     account_name: '',
@@ -40,12 +41,13 @@ function CustomerRegistration() {
   const handleChange = () => {};
   const handleStateChange = () => {};
   const handleSubmit = (e) => e.preventDefault();
-  const handleBack = () => {};
+   const handleBack = () => {
+    navigate('/login');
+  };
   const handleCheckboxChange = () => {};
 
   return (
     <>
-      <Navbar />
       <div className="main-container">
         <div className="customer-master-container">
           <h2>Customer Registration</h2>
@@ -65,6 +67,9 @@ function CustomerRegistration() {
               onChange={handleChange}
               required
             />
+            <InputField label="Phone" name="phone" value={formData.phone} onChange={handleChange} />
+            <InputField label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} required />
+            <InputField label="Email" name="email" value={formData.email} onChange={handleChange} />
             <InputField
               label="Religion"
               name="religion"
@@ -98,10 +103,6 @@ function CustomerRegistration() {
             />
             <InputField label="State Code" name="state_code" value={formData.state_code} onChange={handleChange} readOnly />
 
-            <InputField label="Phone" name="phone" value={formData.phone} onChange={handleChange} />
-            <InputField label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} required />
-            <InputField label="Email" name="email" value={formData.email} onChange={handleChange} />
-
             {/* <InputField label="Birthday" name="birthday" type="date" value={formData.birthday} onChange={handleChange} />
             <InputField label="Anniversary" name="anniversary" type="date" value={formData.anniversary} onChange={handleChange} /> */}
             <InputField label="Bank Account No" name="bank_account_no" value={formData.bank_account_no} onChange={handleChange} />
@@ -115,7 +116,7 @@ function CustomerRegistration() {
             <InputField label="PAN Card" name="pan_card" value={formData.pan_card} onChange={handleChange} />
 
             {/* Checkbox full width */}
-            <div className="checkbox-wrapper">
+            {/* <div className="checkbox-wrapper">
               <label className="checkbox-label" htmlFor="tcs">
                 <input
                   type="checkbox"
@@ -126,7 +127,7 @@ function CustomerRegistration() {
                 />
                 TCS Applicable
               </label>
-            </div>
+            </div> */}
 
             {/* Buttons full width row */}
             <div className="sup-button-container">

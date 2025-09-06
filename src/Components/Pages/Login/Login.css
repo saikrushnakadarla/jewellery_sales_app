@@ -1,12 +1,13 @@
 /* Container & Card */
-.saleslogin-container {
-  background: linear-gradient(135deg, #f9f2d3 0%, #f8e8b5 50%, #fdf6e3 100%);
+/* .saleslogin-container { */
+  /* background: linear-gradient(135deg, #f9f2d3 0%, #f8e8b5 50%, #fdf6e3 100%); */
+  /* background-color: rgba(163, 110, 41, 0.08) !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   padding: 20px;
-}
+} */
 
-.saleslogin-card {
+/* .saleslogin-card {
   background-color: rgba(255, 250, 240, 0.95);
   border: 2px solid #d4af37;
 }
@@ -15,14 +16,14 @@
   padding: 2rem;
 }
 
-/* Welcome Text */
+
 .saleslogin-welcome-text {
   color: #b8860b;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+} */
 
 /* Input & Labels */
-.saleslogin-label {
+/* .saleslogin-label {
   color: #8b7500;
 }
 
@@ -61,39 +62,42 @@
   transition: background-color 0.2s ease;
 }
 
-/* Password Input Group Fix */
 .saleslogin-input-group .form-control {
-  border: 2px solid #d4af37 !important; /* Force gold border */
-  border-right: none !important; /* Keep seamless with eye button */
+  border: 2px solid #d4af37 !important;
+
+  border-right: none !important;
+
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   background-color: #fffdf5 !important;
-}
-
+} */
+/* 
 .saleslogin-eye-toggle {
-  border: 2px solid #d4af37 !important; /* Force gold border */
+  border: 2px solid #d4af37 !important;
+  
   border-left: none !important;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   background-color: #fffdf5 !important;
-}
+} */
 
 .saleslogin-eye-toggle:hover {
   background-color: #f8e8b5 !important;
 }
 
 /* Optional: Make input height match button */
-.saleslogin-input-group .form-control,
+/* .saleslogin-input-group .form-control,
 .saleslogin-eye-toggle {
-  height: 45px; /* Or same as .saleslogin-input */
-}
+  height: 45px;
+ 
+} */
 
-.saleslogin-eye-toggle:hover {
+/* .saleslogin-eye-toggle:hover {
   background-color: #f8e8b5;
-}
+} */
 
 /* Checkbox */
-.saleslogin-checkbox {
+/* .saleslogin-checkbox {
   background-color: #fffdf5;
   border: 2px solid #d4af37;
 }
@@ -105,10 +109,10 @@
 
 .saleslogin-remember {
   color: #8b7500;
-}
+} */
 
 /* Buttons & Links */
-.saleslogin-btn {
+/* .saleslogin-btn {
   background-color: #d4af37;
   color: #fff;
   border: none;
@@ -135,47 +139,154 @@
 
 .saleslogin-register-link:hover {
   color: #b8860b;
-}
+} */
 
 /* ------------------ Media Queries ------------------ */
 
 /* Mobile (360–740px) */
-@media (max-width: 740px) {
+/* @media (max-width: 740px) {
   .saleslogin-container {
     padding: 15px;
   }
-  
+
   .saleslogin-card-body {
     padding: 1.5rem;
   }
-  
+
   .saleslogin-eye-toggle {
     padding: 0.4rem 0.6rem;
   }
-}
+} */
 
 /* iPad Mini (768–1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
   .saleslogin-container {
     padding: 20px;
   }
-  
+
   .saleslogin-card-body {
     padding: 2rem;
   }
-  
+
   .saleslogin-col {
     max-width: 80%;
   }
-}
+} */
 
 /* Desktop (1025px+) */
-@media (min-width: 1025px) {
+/* @media (min-width: 1025px) {
   .saleslogin-container {
     padding: 30px;
   }
-  
+
   .saleslogin-col {
     max-width: 400px;
+    margin-top: 80px;
+  }
+} */
+
+
+
+.saleslogin-container {
+  background: #fff;
+  height: 100vh;
+}
+
+.saleslogin-left {
+  background: #fff;
+}
+
+.saleslogin-logo {
+  max-width: 80%;
+}
+
+.saleslogin-right {
+  background: #fff;
+}
+
+.saleslogin-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.saleslogin-btn {
+  background-color: #c17900;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.saleslogin-btn:hover {
+  background-color: #a35f00;
+}
+
+.saleslogin-password-container {
+  position: relative;
+}
+
+.saleslogin-password-input {
+  padding-right: 40px; /* space for eye icon */
+}
+
+.saleslogin-eye-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 1rem;
+}
+
+.saleslogin-eye-toggle:hover {
+  color: #333;
+}
+
+/* ✅ Mobile Responsiveness */
+@media (max-width: 768px) {
+  .saleslogin-container {
+    height: auto;
+    padding: 20px 10px;
+  }
+
+  .saleslogin-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* space between logo & form */
+  }
+
+  .saleslogin-logo {
+    max-width: 60%;
+  }
+
+  .saleslogin-right {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .saleslogin-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .saleslogin-logo {
+    max-width: 75%;
+  }
+
+  .saleslogin-card {
+    padding: 10px;
+  }
+
+  .saleslogin-btn {
+    font-size: 0.9rem;
+  }
+
+  .saleslogin-welcome-text {
+    font-size: 1.5rem;
   }
 }
